@@ -1,0 +1,24 @@
+# data and model artefacts stay out of Git (large / re-creatable)
+data/raw/*
+data/interim/
+data/processed/
+models/
+*.zip
+*.tif
+*.tiff
+*.npy
+*.pth
+*.joblib
+
+# python
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+.ipynb_checkpoints/
+.DS_Store
+
+# keep the small result files that prove the run
+!reports/
+!data/raw/.gitkeep

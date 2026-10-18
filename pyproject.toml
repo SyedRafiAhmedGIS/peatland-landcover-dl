@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "peatland-landcover-dl"
+version = "0.1.0"
+description = "Open-data land-cover and peat-bog classification: Sentinel-2 + CORINE, Random Forest vs U-Net, spatial block validation."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Syed Rafi Ahmed" }]
+
+[project.urls]
+Homepage = "https://github.com/SyedRafiAhmedGIS/peatland-landcover-dl"
+Issues = "https://github.com/SyedRafiAhmedGIS/peatland-landcover-dl/issues"
+
+[project.scripts]
+peatland = "peatland.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 140
+extend-exclude = ["notebooks"]
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+"app/*" = ["E501"]       # UI strings read better on one line
+"scripts/*" = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

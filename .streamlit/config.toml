@@ -1,0 +1,12 @@
+[server]
+maxUploadSize = 2048        # MB - CORINE zips can be large
+headless = true
+
+[theme]
+primaryColor = "#2e7d32"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f1f5f1"
+textColor = "#1b2a1b"
+
+[browser]
+gatherUsageStats = false

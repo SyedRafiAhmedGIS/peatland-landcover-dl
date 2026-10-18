@@ -1,0 +1,62 @@
+# Single source of truth for the pipeline. Change settings here, not in code.
+seed: 42
+
+study_areas:                       # tried in order until one holds enough peat-bog labels
+  - name: Irish Midlands bogs
+    bbox: [-7.90, 53.10, -7.50, 53.40]   # lon/lat: min_lon, min_lat, max_lon, max_lat
+    fraction: 1.0                        # 1.0 = whole box, 0.5 = central half (fast rehearsal)
+  - name: Connemara blanket bog
+    bbox: [-9.90, 53.40, -9.50, 53.60]
+    fraction: 1.0
+
+imagery:
+  year: 2018                       # matches CORINE 2018
+  months: [5, 9]                   # May to September
+  max_cloud: 30                    # scene-level cloud cover limit (%)
+  max_scenes_per_tile: 6           # clearest scenes kept per Sentinel-2 tile
+  bands: [B02, B03, B04, B08, B11, B12]
+  resolution: 10                   # metres
+  epsg: 32629                      # UTM zone 29N (Ireland)
+
+labels:
+  source: corine                   # corine | worldcover (worldcover = PROXY, no peat class)
+  corine_path: data/raw            # file, zip or folder holding the manual Copernicus download
+  min_peat_px: 50000               # study area must hold at least 5 km2 of peat labels
+
+tiling:
+  tile: 128
+  block: 256                       # 2.56 km spatial blocks; tiles nest exactly inside
+  buffer_tiles: 1                  # exclusion ring (1.28 km) between TEST and train/validation (strict, reported split)
+  val_buffer_tiles: 0              # ring between validation and train; 0 keeps ~45% of the area for training instead of ~27%
+  min_valid_tile: 0.30             # drop tiles with less than 30% labelled pixels
+  split: {train: 0.70, val: 0.15, test: 0.15}
+
+rf:
+  trees: 60
+  max_depth: 18
+  max_px: 150000                   # sample for the largest class; other classes ~ sqrt(class size)
+
+unet:
+  encoder: resnet18
+  batch: 16
+  lr: 0.002
+  epochs: 12
+  patience: 3
+  min_epochs: 5                    # early stopping cannot trigger before this (BatchNorm needs to settle)
+  tiles_per_epoch: 640             # tiles drawn per epoch (whole shuffled passes over the training tiles, repeated if fewer exist)
+  budget_seconds_cpu: 1500         # safety cap only; a capped run is flagged in the reports
+  budget_seconds_gpu: 600
+
+modes:                             # presets: "demo" = fast live run, "full" = the run whose numbers you report
+  demo:
+    imagery: {max_scenes_per_tile: 4}
+    rf: {max_px: 80000, trees: 40}
+    unet: {budget_seconds_cpu: 420, budget_seconds_gpu: 180}
+  full:
+    unet: {epochs: 30, patience: 5}  # the reported run trains longer; budget_seconds_* still caps it
+
+paths:
+  interim: data/interim
+  processed: data/processed
+  models: models
+  reports: reports

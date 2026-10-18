@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "peatland-landcover-dl: open-data land-cover and peat-bog classification (Sentinel-2 + CORINE, Random Forest vs U-Net)"
+type: software
+authors:
+  - family-names: "Ahmed"
+    given-names: "Syed Rafi"
+repository-code: "https://github.com/SyedRafiAhmedGIS/peatland-landcover-dl"
+license: MIT
+version: "0.1.0"
