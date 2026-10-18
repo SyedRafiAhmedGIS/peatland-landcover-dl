@@ -135,3 +135,14 @@ Tests: `pytest` (includes headless Streamlit UI tests) · Lint: `ruff check .` �
 ## Author
 
 Syed Rafi Ahmed - MIT licence. Data are open (Copernicus, ESA, Microsoft Planetary Computer); no dissertation data is used.
+
+## Results (v0.1.0)
+
+Preset: `--mode full --allow-proxy` (WorldCover proxy labels, Irish Midlands bogs study area, 12 clearest Sentinel-2 scenes).
+
+| Model | Overall accuracy | Macro F1 | Peat-bog F1 | Peat precision | Peat recall |
+|---|---|---|---|---|---|
+| RandomForest | 0.852 | 0.684 | 0.404 | 0.289 | 0.671 |
+| UNet | 0.844 | 0.677 | 0.400 | 0.265 | 0.815 |
+
+Stages: download (125s) → preprocess (10s) → split (1s) → train-rf (32s) → train-unet (859s, early-stopped epoch 12) → evaluate (3s).
