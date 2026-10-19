@@ -1,0 +1,122 @@
+{
+  "label_source": "worldcover_2020",
+  "area": "Irish Midlands bogs",
+  "split_seed": 42,
+  "status": "warn",
+  "checks": [
+    {
+      "name": "CRS matches the configured projected CRS",
+      "status": "pass",
+      "detail": "EPSG:32629"
+    },
+    {
+      "name": "Pixel size matches config",
+      "status": "pass",
+      "detail": "10.0 x 10.0 m"
+    },
+    {
+      "name": "Image and label shapes match the grid",
+      "status": "pass",
+      "detail": "(8, 3328, 2560) vs (3328, 2560)"
+    },
+    {
+      "name": "No NaN/Inf in features at labelled pixels",
+      "status": "pass",
+      "detail": "every labelled pixel checked"
+    },
+    {
+      "name": "Labels contain only classes 0-6 or 255",
+      "status": "pass",
+      "detail": "[0, 1, 2, 3, 4, 6, 255]"
+    },
+    {
+      "name": "No spatial block appears in two splits",
+      "status": "pass",
+      "detail": "122 blocks checked"
+    },
+    {
+      "name": "Train tiles keep the buffer distance from test tiles",
+      "status": "pass",
+      "detail": "min gap 2 tiles (need 2)"
+    },
+    {
+      "name": "Validation tiles keep the buffer distance from test tiles",
+      "status": "pass",
+      "detail": "min gap 2 tiles (need 2)"
+    },
+    {
+      "name": "Train tiles keep the buffer distance from validation tiles",
+      "status": "pass",
+      "detail": "min gap 1 tiles (need 1)"
+    },
+    {
+      "name": "Train, validation and test are all non-empty",
+      "status": "pass",
+      "detail": "[238, 56, 80]"
+    },
+    {
+      "name": "Peat bogs present in train",
+      "status": "pass",
+      "detail": "80,013 px"
+    },
+    {
+      "name": "All 7 classes present in train",
+      "status": "warn",
+      "detail": "missing: Other wetlands"
+    },
+    {
+      "name": "Peat bogs present in val",
+      "status": "pass",
+      "detail": "17,096 px"
+    },
+    {
+      "name": "All 7 classes present in val",
+      "status": "warn",
+      "detail": "missing: Other wetlands"
+    },
+    {
+      "name": "Peat bogs present in test",
+      "status": "pass",
+      "detail": "33,564 px"
+    },
+    {
+      "name": "All 7 classes present in test",
+      "status": "warn",
+      "detail": "missing: Other wetlands"
+    },
+    {
+      "name": "Nodata fraction in kept tiles is at most 70%",
+      "status": "pass",
+      "detail": "max 12.3%"
+    }
+  ],
+  "class_counts_per_split": {
+    "train": {
+      "Artificial": 25222,
+      "Agriculture": 167531,
+      "Forest": 521782,
+      "Open semi-natural": 3085007,
+      "Peat bogs": 80013,
+      "Other wetlands": 0,
+      "Water": 12191
+    },
+    "val": {
+      "Artificial": 7785,
+      "Agriculture": 42985,
+      "Forest": 103195,
+      "Open semi-natural": 741700,
+      "Peat bogs": 17096,
+      "Other wetlands": 0,
+      "Water": 1685
+    },
+    "test": {
+      "Artificial": 7004,
+      "Agriculture": 37295,
+      "Forest": 222280,
+      "Open semi-natural": 1007302,
+      "Peat bogs": 33564,
+      "Other wetlands": 0,
+      "Water": 1979
+    }
+  }
+}

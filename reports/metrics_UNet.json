@@ -1,0 +1,129 @@
+{
+  "accuracy": 0.8438023130781168,
+  "macro_f1": 0.6769300834248887,
+  "kappa": 0.6458848825976481,
+  "peat_f1": 0.39954729655726334,
+  "peat_precision": 0.26462651488040545,
+  "peat_recall": 0.81515909903468,
+  "peat_support_px": 33564,
+  "per_class": {
+    "Artificial": {
+      "precision": 0.3036053130929791,
+      "recall": 0.8680753854940034,
+      "f1": 0.4498705142434332,
+      "support": 7004
+    },
+    "Agriculture": {
+      "precision": 0.5873629790873047,
+      "recall": 0.810323099611208,
+      "f1": 0.6810596414526688,
+      "support": 37295
+    },
+    "Forest": {
+      "precision": 0.7845431294658367,
+      "recall": 0.8431932697498651,
+      "f1": 0.8128115669254972,
+      "support": 222280
+    },
+    "Open semi-natural": {
+      "precision": 0.9538951943650429,
+      "recall": 0.8457850773650801,
+      "f1": 0.8965929486892779,
+      "support": 1007302
+    },
+    "Peat bogs": {
+      "precision": 0.26462651488040545,
+      "recall": 0.81515909903468,
+      "f1": 0.39954729655726334,
+      "support": 33564
+    },
+    "Other wetlands": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 0
+    },
+    "Water": {
+      "precision": 0.7336244541484717,
+      "recall": 0.9338049519959576,
+      "f1": 0.8216985326811916,
+      "support": 1979
+    }
+  },
+  "confusion_normalised": [
+    [
+      0.8681,
+      0.0016,
+      0.0011,
+      0.1188,
+      0.0026,
+      0.0,
+      0.0079
+    ],
+    [
+      0.008,
+      0.8103,
+      0.0005,
+      0.1811,
+      0.0001,
+      0.0,
+      0.0
+    ],
+    [
+      0.0047,
+      0.0107,
+      0.8432,
+      0.1254,
+      0.0158,
+      0.0,
+      0.0003
+    ],
+    [
+      0.0125,
+      0.0187,
+      0.0508,
+      0.8458,
+      0.0719,
+      0.0,
+      0.0003
+    ],
+    [
+      0.0,
+      0.0,
+      0.0083,
+      0.1705,
+      0.8152,
+      0.0,
+      0.0061
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0035,
+      0.0015,
+      0.0611,
+      0.0,
+      0.9338
+    ]
+  ],
+  "model": "UNet",
+  "label_source": "worldcover_2020",
+  "area": "Irish Midlands bogs",
+  "test_pixels": 1309424,
+  "seed": 42,
+  "note": "PROXY labels: ESA WorldCover has no peat class (herbaceous wetland substituted).",
+  "split_seed": 42,
+  "mode": "full",
+  "unet_epochs_run": 12,
+  "unet_time_budget_hit": false,
+  "unet_converged": true
+}
