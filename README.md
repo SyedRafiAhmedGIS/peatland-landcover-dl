@@ -8,8 +8,7 @@ Reproducible, open-data land-cover classification for a peat-rich area of Irelan
 Sentinel-2 imagery and CORINE labels feed a Random Forest baseline and a small U-Net, both evaluated on **spatially separated
 test blocks** and packaged with tests, a data-quality gate, CI and Docker.
 
-> **Status:** v0.1.0 (work in progress). Results are only shown below once they have been produced by a real run
-> (`reports/`). Nothing in this README is typed in by hand.
+> **Status:** v0.1.0 (work in progress). Results below come from a real run (`reports/`) using WorldCover proxy labels, not CORINE.
 
 ## Study area and data
 
